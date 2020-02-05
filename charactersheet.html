@@ -1,0 +1,116 @@
+<h1>Dungeons & Dragons 5th Edition Character Sheet</h1>
+    
+    <form> <!--method="post" id=""-->
+        <h2>Character Name</h2>
+            <input type='text' name='characterName' >
+        <h2>Hit Points</h2>
+            <input type='number' name='currHp'>
+        <h2>Armor Class</h2>
+            <input type='number' name='ac' min="5">
+
+        <h2>Strength Modifier</h2>
+        <input type='number' name='strMod' min="-5" max="5">
+            <h3>Strength</h3>
+            <input type='number' name='strength' min="1" max="20">
+        <h2>Dexterity Modifier</h2>
+        <input type='number' name='dexMod' min="-5" max="5">
+            <h3>Dexterity</h3>
+            <input type='number' name='dexterity' min="1" max="20">
+        <h2>Constitution Modifier</h2>
+        <input type='number' name='conMod' min="-5" max="5">
+            <h3>Constitution</h3>
+            <input type='number' name='constitution' min="1" max="20">
+        <h2>Intelligence Modifier</h2>
+        <input type='number' name='intMod' min="-5" max="5">
+            <h3>Intelligence</h3>
+            <input type='number' name='intelligence' min="1" max="20">
+        <h2>Wisdom Modifier</h2>
+        <input type='number' name='wisMod' min="-5" max="5">
+            <h3>Wisdom</h3>
+            <input type='number' name='wisdom' min="1" max="20">
+        <h2>Charisma Modifier</h2>
+        <input type='number' name='chaMod' min="-5" max="5">
+            <h3>Charisma</h3>
+            <input type='number' name='charisma' min="1" max="20">
+
+            <h3>Proficiency Bonus</h3>
+            <input type='number' name='profBonus' min='2' max="6">
+            <h3>Proficiencies</h3>
+            <input list="proficiencies">
+            <datalist id="proficiencies">
+                <option value="Athletics"></option>
+                <option value="Acrobatics"></option>
+                <option value="SleightOfHand"></option>
+                <option value="Stealth"></option>
+                <option value="Arcana"></option>
+                <option value="History"></option>
+                <option value="Investigation"></option>
+                <option value="Nature"></option>
+                <option value="Religion"></option>
+                <option value="AnimalHandling"></option>
+                <option value="Insight"></option>
+                <option value="Medicine"></option>
+                <option value="Perception"></option>
+                <option value="Survival"></option>
+                <option value="Deception"></option>
+                <option value="Intimidation"></option>
+                <option value="Performance"></option>
+                <option value="Persuasion"></option>
+                <option value="TheivesTools"></option>
+                <option value="Instrument"></option>
+            </datalist>  
+
+            <h3>Player Name</h3>    
+            <input type='text' name='player' >
+        
+            <h3>Race</h3>
+            <input list="raceTypes">
+            <datalist id="raceTypes">
+                <option value="Human"></option>
+                <option value="Elf"></option>
+                <option value="Dwarf"></option>
+                <option value="Halfling"></option>
+            </datalist>  
+            <h3>Alignment</h3>
+            <input list="alignment">
+            <datalist id="alignment">
+                <option value="Lawful Good"></option>
+                <option value="Neutral Good"></option>
+                <option value="Chaotic Good"></option>
+                <option value="True Neutral"></option>
+                <option value="Lawful Evil"></option>
+                <option value="Neutral Evil"></option>
+                <option value="Chaotic Evil"></option>
+            </datalist> 
+
+            <h3>Classes and Levels</h3>
+            <input list="classTypes">
+            <datalist id="classTypes">
+                <option value="Fighter"></option>
+                <option value="Wizard"></option>
+                <option value="Rogue"></option>
+                <option value="Cleric"></option>
+            </datalist>
+            <input type='number' name='level' min="1" max="20">
+            
+            <h3>Background</h3>
+            <input type='text' name='background'>
+            <h3>Initiative Bonus</h3>
+            <input type='number' name='initBonus'>
+            <h3>Speed</h3>
+            <input type='number' name='speed' value="30">
+
+            <h3>Hit Point Total</h3>
+            <input type='number' name='hpTotal' >
+            <h3>Temporary Hit Points</h3>
+            <input type='number' name='tempHp' >
+            <h3>Hit Dice</h3>
+            <input type='number' name='hitDice' value=> <!--Should match character level-->
+            <input list="diceTypes">
+            <datalist id="diceTypes">
+                <option value="d6"></option>
+                <option value="d8"></option>
+                <option value="d10"></option>
+                <option value="d12"></option>
+            </datalist>
+    </form>
