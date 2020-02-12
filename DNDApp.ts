@@ -9,11 +9,12 @@ interface Character {
     Intelligence: number;
     Wisdom: number;
     Charisma: number;
-    RollStats();
-    IncreaseHPTotal();
-    FullRest();
+    RollStats(): number[];
+    IncreaseHPTotal(): void;
+    FullRest(): void;
     ShortRest(NumberOfHitDice: number);
-    Heal();
+    Heal(healAmount: number): void;
+    TakeDamage(damage: number): void;
 }
 
 class DNDClass implements dndclass{
@@ -59,7 +60,6 @@ interface dndclass {
     ClassName: DNDClasses;
     Spellcaster: boolean;
     SavingThrows: DNDStat[]; // Todo: Limit to two
-    RollStats();
     
 }
 
