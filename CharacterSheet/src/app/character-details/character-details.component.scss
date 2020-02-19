@@ -1,0 +1,25 @@
+.character-details-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .player-name {
+        text-align: center;
+    }
+
+    .character-name {
+        text-align: center;
+    }
+
+    .character-level {
+        text-align: center;
+    }
+
+    .character-race {
+        text-align: center;
+    }
+
+    .character-class {
+        text-align: center;
+    }
+}

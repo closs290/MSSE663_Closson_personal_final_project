@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { character } from '../datatypes.model';
+// import { character } from '../datatypes.model';
 
 @Component({
   selector: 'app-create-character',
@@ -9,7 +9,7 @@ import { character } from '../datatypes.model';
 })
 export class CreateCharacterComponent implements OnInit {
 
-  hero: character;
+  // hero: character;
 
   selectedRaceOptionObj = {
     word: 'show this please'
