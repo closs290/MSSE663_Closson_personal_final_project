@@ -12,7 +12,7 @@ interface Character {
     RollStats(): number[];
     IncreaseHPTotal(): void;
     FullRest(): void;
-    ShortRest(NumberOfHitDice: number);
+    ShortRest(NumberOfHitDice: number): void;
     Heal(healAmount: number): void;
     TakeDamage(damage: number): void;
 }
@@ -60,7 +60,6 @@ interface dndclass {
     ClassName: DNDClasses;
     Spellcaster: boolean;
     SavingThrows: DNDStat[]; // Todo: Limit to two
-    
 }
 
 interface dndrace {
