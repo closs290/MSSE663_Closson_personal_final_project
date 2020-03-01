@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,8 @@ import { CreateCharacterComponent } from './create-character/create-character.co
 import { CharacterPanelComponent } from './character-panel/character-panel.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
+import { RollCharacterComponent } from './roll-character/roll-character.component';
+import { RollStatsComponent } from './roll-stats/roll-stats.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,17 @@ import { CharacterDetailsComponent } from './character-details/character-details
     CreateCharacterComponent,
     CharacterPanelComponent,
     CharacterListComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    RollCharacterComponent,
+    RollStatsComponent
   ],
   imports: [
+    HttpClientModule,
+    RouterModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

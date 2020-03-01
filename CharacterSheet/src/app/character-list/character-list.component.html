@@ -1,4 +1,12 @@
-<div>
-    <!-- <div *ngFor="let character of characters">
-    </div> -->
+<div *ngIf="CharacterList$ | async as characters">
+    <ul class="characterList">
+      <app-character-details *ngFor="let char of characters">
+            <!-- [class.selected]="char === selectedCharacter"
+            (click)="selectRecipe(recipe)">
+            {{ recipe.title }} -->
+        </app-character-details>
+        <app-stats></app-stats>
+    </ul>    
 </div>
+
+<button (click)="addRecipe()">New Character</button>

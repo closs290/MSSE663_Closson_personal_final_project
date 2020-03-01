@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+
 import { CharacterModel } from '../../../backend/models/character.model';
 import { CharacterService } from '../character.service';
 
@@ -9,13 +12,16 @@ import { CharacterService } from '../character.service';
 })
 export class CharacterListComponent implements OnInit {
 
+  characters: CharacterModel[];
+  private CharacterList$: Observable<CharacterModel[]>;
+
   constructor(
-    private CharacterList: CharacterModel[],
-    private charService: CharacterService
+    private charService: CharacterService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.CharacterList = this.charService.listAllCharacters;
+    this.CharacterList$ = this.charService.listAllCharacters();
   }
 
 }

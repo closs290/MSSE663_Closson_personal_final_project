@@ -36,7 +36,7 @@ export const defaultCallback = (req: any, res: any) => (
   
   export const deleteCharacter = (req: any, res: any) => {
     Characters.deleteOne(
-      { _id: req.params.taskId },
-      defaultCallback(req, res)
+      { _id: req.params.taskId }
+      //, defaultCallback(req, res)
     );
   };
