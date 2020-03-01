@@ -19,9 +19,21 @@ export const defaultCallback = (req: any, res: any) => (
   };
   
   export const createCharacter = (req: any, res: any) => {
-    const newCharacter = new Characters({
-      name: req.body.name
-    });
+    const charToCreate = {
+      playerName: req.body.playerName,
+      characterName: req.body.characterName,
+      characterLevel: req.body.characterLevel,
+      charaterRace: req.body.charaterRace,
+      characterClass: req.body.characterClass,
+      strength: req.body.strength,
+      dexterity: req.body.dexterity,
+      constitution: req.body.constitution,
+      intelligence: req.body.intelligence,
+      wisdom: req.body.wisdom,
+      charisma: req.body.charisma
+    }
+    
+    const newCharacter = new Characters(charToCreate);
     newCharacter.save(defaultCallback(req, res));
   };
   

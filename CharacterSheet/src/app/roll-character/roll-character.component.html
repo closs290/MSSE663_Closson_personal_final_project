@@ -44,12 +44,13 @@
             <!--TODO: Update datalist to select, and use Angular to generate from my model>
             <input type="text" list="races" [(ngModel)]="raceValue">
             <select type="text" list="races" [(ngModel)]-->
-            <input list="characterRace">
-              <datalist   class="form-control"
-                          name="player"
-                          formControlName="characterRace"
-                          id="characterRace" 
-                          required>
+            <input  list="characterRace"
+                    class="form-control"
+                    name="characterRace"
+                    formControlName="characterRace"
+                    id="characterRace" 
+                    required>
+              <datalist id="characterRace">
                       <option value="Elf"></option>
                       <option value="Dwarf"></option>
                       <option value="Human"></option>
@@ -61,12 +62,13 @@
 
           <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterClass.errors }">
             <label for="characterClass">Character class:</label>
-            <input list=characterClass>
-              <datalist   class="form-control"
-                          name="player"
-                          formControlName="characterClass"
-                          id="characterClass" 
-                          required>
+            <input  list="characterClass"
+                    class="form-control"
+                    name="characterClass"
+                    formControlName="characterClass"
+                    id="characterClass" 
+                    required>
+              <datalist id="characterClass">
                       <option value="Fighter"></option>
                       <option value="Rogue"></option>
                       <option value="Wizard"></option>
