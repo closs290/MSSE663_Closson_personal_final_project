@@ -15,7 +15,7 @@ export const defaultCallback = (req: any, res: any) => (
   };
   
   export const getCharacter = (req: any, res: any) => {
-    Characters.findById(req.params.taskId, defaultCallback(req, res));
+    Characters.findById(req.params.characterId, defaultCallback(req, res));
   };
   
   export const createCharacter = (req: any, res: any) => {
@@ -23,7 +23,7 @@ export const defaultCallback = (req: any, res: any) => (
       playerName: req.body.playerName,
       characterName: req.body.characterName,
       characterLevel: req.body.characterLevel,
-      charaterRace: req.body.charaterRace,
+      characterRace: req.body.characterRace,
       characterClass: req.body.characterClass,
       strength: req.body.strength,
       dexterity: req.body.dexterity,
@@ -43,7 +43,7 @@ export const defaultCallback = (req: any, res: any) => (
       playerName: req.body.playerName,
       characterName: req.body.characterName,
       characterLevel: req.body.characterLevel,
-      charaterRace: req.body.charaterRace,
+      characterRace: req.body.characterRace,
       characterClass: req.body.characterClass,
       strength: req.body.strength,
       dexterity: req.body.dexterity,
@@ -54,7 +54,7 @@ export const defaultCallback = (req: any, res: any) => (
     }
     
     Characters.findOneAndUpdate(
-      { _id: req.params.taskId },
+      { _id: req.params.characterId },
       charToUpdate,
       defaultCallback(req, res)
     );
@@ -62,7 +62,7 @@ export const defaultCallback = (req: any, res: any) => (
   
   export const deleteCharacter = (req: any, res: any) => {
     Characters.deleteOne(
-      { _id: req.params.taskId }
+      { _id: req.params.characterId }
       //, defaultCallback(req, res)
     );
   };

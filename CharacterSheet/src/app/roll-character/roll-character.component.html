@@ -2,7 +2,9 @@
     <div class="home-container">
       <div class="home-selected-container has-background-light">
         <h2 class="title has-text-primary">Roll a new character!</h2>
-        <form name="form" [formGroup]="newCharacterForm" (ngSubmit)="sendCharacterToDB()">
+        <form name="info-form" id="info-form" 
+              [formGroup]="newCharacterForm" 
+              (ngSubmit)="sendCharacterToDB()">
           <div class="form-group" [ngClass]="{ 'has-error': submitted && field.playerName.errors }">
             <label for="playerName">Player Name:</label>
             <input  type="text"
@@ -67,7 +69,7 @@
                     name="characterClass"
                     formControlName="characterClass"
                     id="characterClass" 
-                    required>
+                    required />
               <datalist id="characterClass">
                       <option value="Fighter"></option>
                       <option value="Rogue"></option>
@@ -79,15 +81,91 @@
                 Is your character a fighter, rogue, wizard or cleric?
             </div>
           </div>
+
+          <div class='form-group'>
+              <label for="strength">Strength:</label>
+              <input  type="number" 
+                    min="1" max="20"
+                    class="form-control" 
+                    name="strength" 
+                    formControlName="strength" 
+                    id="strength"
+                   required />
+          </div>
+
+          <div class='form-group'>
+            <label for="dexterity">Dexterity:</label>
+            <input  type="number" 
+                  min="1" max="20"
+                  class="form-control" 
+                  name="dexterity" 
+                  formControlName="dexterity" 
+                  id="dexterity"
+                 required />
+          </div>
+
+          <div class='form-group'>
+            <label for="constitution">Constitution:</label>
+            <input  type="number" 
+                  min="1" max="20"
+                  class="form-control" 
+                  name="constitution" 
+                  formControlName="constitution" 
+                  id="constitution"
+                required />
+          </div>
+
+          <div class='form-group'>
+            <label for="intelligence">Intelligence:</label>
+            <input  type="number" 
+                  min="1" max="20"
+                  class="form-control" 
+                  name="intelligence" 
+                  formControlName="intelligence" 
+                  id="intelligence"
+                required />
+          </div>
+
+          <div class='form-group'>
+            <label for="wisdom">Wisdom:</label>
+            <input  type="number" 
+                  min="1" max="20"
+                  class="form-control" 
+                  name="wisdom" 
+                  formControlName="wisdom" 
+                  id="wisdom"
+                required />
+          </div>
+
+          <div class='form-group'>
+            <label for="charisma">Charisma:</label>
+            <input  type="number" 
+                  min="1" max="20"
+                  class="form-control" 
+                  name="charisma" 
+                  formControlName="charisma" 
+                  id="charisma"
+                required />
+          </div>
+
           <div *ngIf="submitted && error" class="form-group" [ngClass]="{ 'has-error': submitted && error }">
             <div class="help-block">{{error}}</div>
           </div>
           <div class="form-group">
-            <button [disabled]="loading" class="button is-grey-lighter has-background-gray">Create character!</button>
+            <input  type="submit" 
+                    [disabled]="loading" 
+                    value="Save details"
+                    class="button is-grey-lighter has-background-gray" />
             <button [routerLink]="['/']" class="btn-link ">Cancel</button>
           </div>
         </form>
-        <app-roll-stats></app-roll-stats>
+
+        <!-- <form name="stats-form" id="stats-form" [formGroup]="newStatsForm" (ngSubmit)="saveStats()"></form>
+            <app-roll-stats></app-roll-stats>
+            <input type="submit" value="These stats look good!" /> 
+        </form> -->
+
+        <!-- <button (click)="sendCharacterToDB()">Save character to Database!</button> -->
       </div>
     </div>
   </div>

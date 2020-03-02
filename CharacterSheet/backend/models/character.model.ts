@@ -4,7 +4,7 @@ export interface CharacterModel {
     playerName: string;
     characterName: string;
     characterLevel: number;
-    charaterRace: string;
+    characterRace: string;
     characterClass: string;
     strength: number;
     dexterity: number;
@@ -12,12 +12,9 @@ export interface CharacterModel {
     intelligence: number;
     wisdom: number;
     charisma: number;
-  }
+}
   
-  export const CharacterSchema = new Schema<CharacterModel>({
-    currentCount: {
-      type: Number
-    },
+export const CharacterSchema = new Schema<CharacterModel>({
     playerName: {
         type: String
     },
@@ -27,7 +24,7 @@ export interface CharacterModel {
     characterLevel: {
         type: Number
     },
-    charaterRace: {
+    characterRace: {
         type: String
     },
     characterClass: {
@@ -51,6 +48,6 @@ export interface CharacterModel {
     charisma: {
         type: Number
     }
-  });
+});
   
 export const Characters = model('Character', CharacterSchema);
