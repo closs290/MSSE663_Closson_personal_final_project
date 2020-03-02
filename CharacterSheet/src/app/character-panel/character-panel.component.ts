@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CharacterModel } from 'backend/models/character.model';
 
 @Component({
   selector: 'app-character-panel',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-panel.component.scss']
 })
 export class CharacterPanelComponent implements OnInit {
+  @Input() thisCharacter: CharacterModel;
 
   constructor() { }
 

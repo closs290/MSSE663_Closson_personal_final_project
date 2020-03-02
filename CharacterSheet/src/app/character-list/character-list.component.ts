@@ -12,8 +12,9 @@ import { CharacterService } from '../character.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  characters: CharacterModel[];
-  private CharacterList$: Observable<CharacterModel[]>;
+  // characters: CharacterModel[];
+  CharacterList$: Observable<CharacterModel[]>;
+  selectedCharacter: CharacterModel;
 
   constructor(
     private charService: CharacterService,
@@ -26,6 +27,10 @@ export class CharacterListComponent implements OnInit {
 
   newCharacter() {
     this.router.navigate(['/rollCharacter']);
+  }
+
+  onSelect(character: CharacterModel): void {
+    this.selectedCharacter = character;
   }
 
 }
