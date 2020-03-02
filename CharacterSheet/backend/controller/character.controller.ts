@@ -38,10 +38,24 @@ export const defaultCallback = (req: any, res: any) => (
   };
   
   export const updateCharacter = (req: any, res: any) => {
+    
+    const charToUpdate = {
+      playerName: req.body.playerName,
+      characterName: req.body.characterName,
+      characterLevel: req.body.characterLevel,
+      charaterRace: req.body.charaterRace,
+      characterClass: req.body.characterClass,
+      strength: req.body.strength,
+      dexterity: req.body.dexterity,
+      constitution: req.body.constitution,
+      intelligence: req.body.intelligence,
+      wisdom: req.body.wisdom,
+      charisma: req.body.charisma
+    }
+    
     Characters.findOneAndUpdate(
       { _id: req.params.taskId },
-      req.body,
-      { new: true },
+      charToUpdate,
       defaultCallback(req, res)
     );
   };

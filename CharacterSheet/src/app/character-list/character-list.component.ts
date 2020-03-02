@@ -24,4 +24,8 @@ export class CharacterListComponent implements OnInit {
     this.CharacterList$ = this.charService.listAllCharacters();
   }
 
+  newCharacter() {
+    this.router.navigate(['/rollCharacter']);
+  }
+
 }

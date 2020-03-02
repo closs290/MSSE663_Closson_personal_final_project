@@ -20,7 +20,7 @@ import {
   characterRoutes.get("/", getAllCharacters).post("/", createCharacter);
   
   /**
-   * Routes for a task by id. Evalutes to `/characters/:taskId`.
+   * Routes for a task by id. Evalutes to `/characters/:characterId`.
    */
   characterRoutes
     .get("/:characterId", getCharacter)
