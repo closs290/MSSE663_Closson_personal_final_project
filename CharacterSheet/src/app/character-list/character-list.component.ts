@@ -31,6 +31,9 @@ export class CharacterListComponent implements OnInit {
 
   deleteCharacter(id: string) {
     this.charService.deleteCharacter(id).subscribe();
+    // Probably not the best way to do this, but it re-loads the view
+    // to accomodate the deletion.
+    this.CharacterList$ = this.charService.listAllCharacters();
   }
 
   onSelect(character: CharacterModel): void {

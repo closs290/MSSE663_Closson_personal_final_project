@@ -1,88 +1,89 @@
-<div class="centered-content has-background-grey-light">
-    <div class="home-container">
-      <div class="home-selected-container has-background-light">
-        <h2 class="title has-text-primary">Roll a new character!</h2>
-        <form name="info-form" id="info-form" 
-              [formGroup]="newCharacterForm" 
-              (ngSubmit)="sendCharacterToDB()">
-          <div class="form-group" [ngClass]="{ 'has-error': submitted && field.playerName.errors }">
-            <label for="playerName">Player Name:</label>
-            <input  type="text"
-                    class="form-control"
-                    name="playerName"
-                    formControlName="playerName"
-                    id="playerName" required/>
-            <div *ngIf="submitted && field.playerName.errors" class="help-block">
-                What's your name?
-            </div>
+<div class="centered-content home-container">
+    <div class="new-character-form-container">
+      <h2 class="title">Roll a new character!</h2><br>
+      <form name="info-form" id="info-form" 
+            [formGroup]="newCharacterForm" 
+            (ngSubmit)="sendCharacterToDB()">
+        <div class="form-group" [ngClass]="{ 'has-error': submitted && field.playerName.errors }">
+          <label for="playerName">Player Name:</label>
+          <input  type="text"
+                  class="form-control"
+                  name="playerName"
+                  formControlName="playerName"
+                  id="playerName" required/>
+          <div *ngIf="submitted && field.playerName.errors" class="help-block">
+              What's your name?
           </div>
-          <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterName.errors }">
-            <label for="characterName">Character name:</label>
-            <input  type="textarea" 
-                    class="form-control"
-                    name="characterName"
-                    formControlName="characterName"
-                    id="characterName"
-                   required />
-            <div *ngIf="submitted && field.characterName.errors" class="help-block">
-                What's your character's name?
-            </div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterName.errors }">
+          <label for="characterName">Character name:</label>
+          <input  type="textarea" 
+                  class="form-control"
+                  name="characterName"
+                  formControlName="characterName"
+                  id="characterName"
+                  required />
+          <div *ngIf="submitted && field.characterName.errors" class="help-block">
+              What's your character's name?
           </div>
-          <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterLevel.errors }">
-            <label for="characterLevel">Character Level</label>
-            <input  type="number" 
-                    min="1" max="20"
-                    class="form-control" 
-                    name="characterLevel" 
-                    formControlName="characterLevel" 
-                    id="characterLevel"
-                   required />
-            <div *ngIf="submitted && field.characterLevel.errors" class="help-block">
-                Are we starting at level 1?
-            </div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterLevel.errors }">
+          <label for="characterLevel">Character Level</label>
+          <input  type="number" 
+                  min="1" max="20"
+                  class="form-control" 
+                  name="characterLevel" 
+                  formControlName="characterLevel" 
+                  id="characterLevel"
+                  required />
+          <div *ngIf="submitted && field.characterLevel.errors" class="help-block">
+              Are we starting at level 1?
           </div>
-          <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterRace.errors }">
-            <label for="characterRace">Character race:</label>
-            <!--TODO: Update datalist to select, and use Angular to generate from my model>
-            <input type="text" list="races" [(ngModel)]="raceValue">
-            <select type="text" list="races" [(ngModel)]-->
-            <input  list="characterRace"
-                    class="form-control"
-                    name="characterRace"
-                    formControlName="characterRace"
-                    id="characterRace" 
-                    required>
-              <datalist id="characterRace">
-                      <option value="Elf"></option>
-                      <option value="Dwarf"></option>
-                      <option value="Human"></option>
-              </datalist>
-            <div *ngIf="submitted && field.characterRace.errors" class="help-block">
-                Is your character an elf, dwarf or human?
-            </div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterRace.errors }">
+          <label for="characterRace">Character race:</label>
+          <!--TODO: Update datalist to select, and use Angular to generate from my model>
+          <input type="text" list="races" [(ngModel)]="raceValue">
+          <select type="text" list="races" [(ngModel)]-->
+          <input  list="characterRace"
+                  class="form-control"
+                  name="characterRace"
+                  formControlName="characterRace"
+                  id="characterRace" 
+                  required>
+            <datalist id="characterRace">
+                    <option value="Elf"></option>
+                    <option value="Dwarf"></option>
+                    <option value="Human"></option>
+            </datalist>
+          <div *ngIf="submitted && field.characterRace.errors" class="help-block">
+              Is your character an elf, dwarf or human?
           </div>
+        </div>
 
-          <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterClass.errors }">
-            <label for="characterClass">Character class:</label>
-            <input  list="characterClass"
-                    class="form-control"
-                    name="characterClass"
-                    formControlName="characterClass"
-                    id="characterClass" 
-                    required />
-              <datalist id="characterClass">
-                      <option value="Fighter"></option>
-                      <option value="Rogue"></option>
-                      <option value="Wizard"></option>
-                      <option value="Cleric"></option>
-              <!--TODO: Update datalist to select, and use Angular to generate from my model-->
-              </datalist>
-            <div *ngIf="submitted && field.characterClass.errors" class="help-block">
-                Is your character a fighter, rogue, wizard or cleric?
-            </div>
+        <div class="form-group" [ngClass]="{ 'has-error': submitted && field.characterClass.errors }">
+          <label for="characterClass">Character class:</label>
+          <input  list="characterClass"
+                  class="form-control"
+                  name="characterClass"
+                  formControlName="characterClass"
+                  id="characterClass" 
+                  required />
+            <datalist id="characterClass">
+                    <option value="Fighter"></option>
+                    <option value="Rogue"></option>
+                    <option value="Wizard"></option>
+                    <option value="Cleric"></option>
+            <!--TODO: Update datalist to select, and use Angular to generate from my model-->
+            </datalist>
+          <div *ngIf="submitted && field.characterClass.errors" class="help-block">
+              Is your character a fighter, rogue, wizard or cleric?
           </div>
+        </div>
 
-          <div class='form-group'>
+        <div class='stat-group'>
+          <div class='physical-stats'>
+            <div class='form-group'>
               <label for="strength">Strength:</label>
               <input  type="number" 
                     min="1" max="20"
@@ -90,82 +91,85 @@
                     name="strength" 
                     formControlName="strength" 
                     id="strength"
-                   required />
-          </div>
+                    required />
+            </div>
 
-          <div class='form-group'>
-            <label for="dexterity">Dexterity:</label>
-            <input  type="number" 
-                  min="1" max="20"
-                  class="form-control" 
-                  name="dexterity" 
-                  formControlName="dexterity" 
-                  id="dexterity"
-                 required />
-          </div>
+            <div class='form-group'>
+              <label for="dexterity">Dexterity:</label>
+              <input  type="number" 
+                    min="1" max="20"
+                    class="form-control" 
+                    name="dexterity" 
+                    formControlName="dexterity" 
+                    id="dexterity"
+                    required />
+            </div>
 
-          <div class='form-group'>
-            <label for="constitution">Constitution:</label>
-            <input  type="number" 
-                  min="1" max="20"
-                  class="form-control" 
-                  name="constitution" 
-                  formControlName="constitution" 
-                  id="constitution"
-                required />
+            <div class='form-group'>
+              <label for="constitution">Constitution:</label>
+              <input  type="number" 
+                    min="1" max="20"
+                    class="form-control" 
+                    name="constitution" 
+                    formControlName="constitution" 
+                    id="constitution"
+                  required />
+            </div>
           </div>
+          <div class="mental-stats">
+            <div class='form-group'>
+              <label for="intelligence">Intelligence:</label>
+              <input  type="number" 
+                    min="1" max="20"
+                    class="form-control" 
+                    name="intelligence" 
+                    formControlName="intelligence" 
+                    id="intelligence"
+                  required />
+            </div>
 
-          <div class='form-group'>
-            <label for="intelligence">Intelligence:</label>
-            <input  type="number" 
-                  min="1" max="20"
-                  class="form-control" 
-                  name="intelligence" 
-                  formControlName="intelligence" 
-                  id="intelligence"
-                required />
+            <div class='form-group'>
+              <label for="wisdom">Wisdom:</label>
+              <input  type="number" 
+                    min="1" max="20"
+                    class="form-control" 
+                    name="wisdom" 
+                    formControlName="wisdom" 
+                    id="wisdom"
+                  required />
+            </div>
+
+            <div class='form-group'>
+              <label for="charisma">Charisma:</label>
+              <input  type="number" 
+                    min="1" max="20"
+                    class="form-control" 
+                    name="charisma" 
+                    formControlName="charisma" 
+                    id="charisma"
+                  required />
+            </div>
           </div>
+        </div>
 
-          <div class='form-group'>
-            <label for="wisdom">Wisdom:</label>
-            <input  type="number" 
-                  min="1" max="20"
-                  class="form-control" 
-                  name="wisdom" 
-                  formControlName="wisdom" 
-                  id="wisdom"
-                required />
-          </div>
+        <div *ngIf="submitted && error" class="form-group" [ngClass]="{ 'has-error': submitted && error }">
+          <div class="help-block">{{error}}</div>
+        </div>
+        <div class="form-group">
+          <input  type="submit" 
+                  [disabled]="loading" 
+                  value="Save details"
+                  class="button" 
+                  style="margin: 1em;"/>
+          <button [routerLink]="['/']" class="btn-link ">Cancel</button>
+        </div>
+      </form>
 
-          <div class='form-group'>
-            <label for="charisma">Charisma:</label>
-            <input  type="number" 
-                  min="1" max="20"
-                  class="form-control" 
-                  name="charisma" 
-                  formControlName="charisma" 
-                  id="charisma"
-                required />
-          </div>
+      <!-- <form name="stats-form" id="stats-form" [formGroup]="newStatsForm" (ngSubmit)="saveStats()"></form>
+          <app-roll-stats></app-roll-stats>
+          <input type="submit" value="These stats look good!" /> 
+      </form> -->
 
-          <div *ngIf="submitted && error" class="form-group" [ngClass]="{ 'has-error': submitted && error }">
-            <div class="help-block">{{error}}</div>
-          </div>
-          <div class="form-group">
-            <input  type="submit" 
-                    [disabled]="loading" 
-                    value="Save details"
-                    class="button is-grey-lighter has-background-gray" />
-            <button [routerLink]="['/']" class="btn-link ">Cancel</button>
-          </div>
-        </form>
-
-        <!-- <form name="stats-form" id="stats-form" [formGroup]="newStatsForm" (ngSubmit)="saveStats()"></form>
-            <app-roll-stats></app-roll-stats>
-            <input type="submit" value="These stats look good!" /> 
-        </form> -->
-
-        <!-- <button (click)="sendCharacterToDB()">Save character to Database!</button> -->
-      </div>
+      <!-- <button (click)="sendCharacterToDB()">Save character to Database!</button> -->
     </div>
-  </div>
+</div>

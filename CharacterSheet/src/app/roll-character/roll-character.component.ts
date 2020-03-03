@@ -38,17 +38,17 @@ export class RollCharacterComponent implements OnInit {
 
   ngOnInit() {
     this.newCharacterForm = this.formBuilder.group({
-      playerName: ['', Validators.required],
+      playerName: ['Type your name here...', Validators.required],
       characterName: ['', Validators.required],
       characterLevel: [1, Validators.required],
-      characterRace: ['', Validators.required],
-      characterClass: ['', Validators.required],
-      strength: ['', Validators.required],
-      dexterity: ['', Validators.required],
-      constitution: ['', Validators.required],
-      intelligence: ['', Validators.required],
-      wisdom: ['', Validators.required],
-      charisma: ['', Validators.required]
+      characterRace: ['Human', Validators.required],
+      characterClass: ['Fighter', Validators.required],
+      strength: [10, Validators.required],
+      dexterity: [10, Validators.required],
+      constitution: [10, Validators.required],
+      intelligence: [10, Validators.required],
+      wisdom: [10, Validators.required],
+      charisma: [10, Validators.required]
     });
     // ToDo: Refactor. Do I want to mass create characters, or view list after creation?
     // this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/characters/view';
@@ -72,7 +72,7 @@ export class RollCharacterComponent implements OnInit {
       wisdom: this.field.wisdom.value,
       charisma: this.field.charisma.value
     }).pipe(first())
-    .subscribe(
+    .subscribe( // Note the subscription on the service post here.
       data => {
         window.alert(this.field.characterName.value + ' joins the party!');
         this.router.navigate([this.returnUrl]);

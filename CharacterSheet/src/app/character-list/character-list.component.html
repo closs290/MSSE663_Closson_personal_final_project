@@ -1,11 +1,18 @@
-<div *ngIf="CharacterList$ | async as characters">
-    <ul class="characterList">
-        <li *ngFor="let char of characters">
-            <app-character-details [thisCharacter]="char"></app-character-details>
-            <app-stats [thisCharacter]="char"></app-stats>
-            <button (click)="deleteCharacter(char._id)">Delete</button>
-        </li>
-    </ul>    
+<div class="character-list">
+    <div class="page-content">
+        <div *ngIf="CharacterList$ | async as characters">
+            <ul class="characterList">
+                <li class="idividual-character" *ngFor="let char of characters">
+                    <app-character-details [thisCharacter]="char"></app-character-details>
+                    <app-stats [thisCharacter]="char"></app-stats>
+                    <button (click)="deleteCharacter(char._id)">Delete</button>
+                </li>
+            </ul>    
+        </div>
+        
+        <button (click)="newCharacter()"
+                class="new-character-button">
+            New Character
+        </button>
+    </div>
 </div>
-
-<button (click)="newCharacter()">New Character</button>

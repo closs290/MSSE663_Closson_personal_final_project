@@ -24,7 +24,7 @@ export class CharacterService {
 
   retrieveOneCharacter(characterId: string): Observable<CharacterModel> {
     return this.httpClient.get<any>(`${this.API_URL}/characters/${characterId}`);
-  }
+  }  // Remember to subscribe in your calling component, or else nothing will happen!
 
   postNewCharacter(characterData: CharacterModel): Observable<CharacterModel> {
     return this.httpClient.post<CharacterModel>(`${this.API_URL}/characters/`, characterData);
@@ -32,11 +32,11 @@ export class CharacterService {
 
   updateCharacter(characterId: string, characterData: CharacterModel) {
     return this.httpClient.put<CharacterModel>(`${this.API_URL}/characters/${characterId}`, characterData);
-  }
+  } // Remember to subscribe in your calling component, or else nothing will happen!
 
   deleteCharacter(characterId: string) {
     return this.httpClient.delete(`${this.API_URL}/characters/${characterId}`);
         //.pipe(catchError(this.handleError('Delete Character')));
-  }
+  }  // Remember to subscribe in your calling component, or else nothing will happen!
   
 }
