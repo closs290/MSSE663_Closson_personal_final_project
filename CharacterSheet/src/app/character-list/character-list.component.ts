@@ -29,8 +29,8 @@ export class CharacterListComponent implements OnInit {
     this.router.navigate(['/rollCharacter']);
   }
 
-  deleteCharacter() {
-    this.charService.deleteCharacter('');
+  deleteCharacter(id: string) {
+    this.charService.deleteCharacter(id).subscribe();
   }
 
   onSelect(character: CharacterModel): void {

@@ -10,15 +10,27 @@ export const defaultCallback = (req: any, res: any) => (
     res.json(data);
   };
 
+  export const optsCallback = (req: any, res: any) => (options: {msg?: string}) => (
+    err: any
+  ) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(options);
+  };
+
   export const getAllCharacters = (req: any, res: any) => {
+    console.log("Loading characters");
     Characters.find({}, defaultCallback(req, res));
   };
   
   export const getCharacter = (req: any, res: any) => {
+    console.log("Looking for character " + req.params.characterId);
     Characters.findById(req.params.characterId, defaultCallback(req, res));
   };
   
   export const createCharacter = (req: any, res: any) => {
+    console.log("Creating " + req.body.characterName + " for " + req.body.playerName);
     const charToCreate = {
       playerName: req.body.playerName,
       characterName: req.body.characterName,
@@ -61,8 +73,20 @@ export const defaultCallback = (req: any, res: any) => (
   };
   
   export const deleteCharacter = (req: any, res: any) => {
+    console.log("Trying to delete: " + req.params.characterId);
     Characters.deleteOne(
-      { _id: req.params.characterId }
-      //, defaultCallback(req, res)
+      {_id: req.params.characterId},
+      optsCallback(req, res)({msg: "Deleted successfully"})
     );
+    // console.log("Trying to delete: " + req.body._id);
+    // Characters.findOneAndRemove(
+    //   { _id: req.params.propertyId },
+    //   req.body,
+    //   function(err, data) {
+    //     if(!err) {
+    //       console.log("Deleted " + req.body.characterName);
+    //       res.status(200).json({success: true, msg: 'Character has been deleted!'});
+    //     }
+    //   }
+    // );
   };

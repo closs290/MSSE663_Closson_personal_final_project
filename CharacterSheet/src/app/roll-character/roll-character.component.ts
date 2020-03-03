@@ -74,7 +74,7 @@ export class RollCharacterComponent implements OnInit {
     }).pipe(first())
     .subscribe(
       data => {
-        window.alert('New character created!');
+        window.alert(this.field.characterName.value + ' joins the party!');
         this.router.navigate([this.returnUrl]);
       },
       error => {

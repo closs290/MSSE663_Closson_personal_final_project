@@ -9,7 +9,7 @@ import {
   
   export const characterRoutes = express.Router();
   /**
-   * Express routes fro Tasks.
+   * Express routes from character controller.
    *
    * RESTful endpoints make for easiily adding to existing API features.
    */
@@ -17,12 +17,13 @@ import {
   /**
    * Routes for all tasks. Evaluates to `/characters/`.
    */
-  characterRoutes.get("/", getAllCharacters).post("/", createCharacter);
+  characterRoutes
+    .get("/", getAllCharacters)
+    .post("/", createCharacter);
   
   /**
-   * Routes for a task by id. Evalutes to `/characters/:characterId`.
+   * Routes for a character by id. Evalutes to `/characters/:characterId`.
    */
-  characterRoutes
-    .get("/:characterId", getCharacter)
-    .post("/:characterId", updateCharacter)
-    .delete("/:characterId", deleteCharacter);
+  characterRoutes.get("/:characterId", getCharacter);
+  characterRoutes.post("/:characterId", updateCharacter);
+  characterRoutes.delete("/:characterId", deleteCharacter);

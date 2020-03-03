@@ -23,7 +23,7 @@ export class CharacterService {
   }
 
   retrieveOneCharacter(characterId: string): Observable<CharacterModel> {
-    return this.httpClient.get<any>(`${this.API_URL}/characters/:characterId`);
+    return this.httpClient.get<any>(`${this.API_URL}/characters/${characterId}`);
   }
 
   postNewCharacter(characterData: CharacterModel): Observable<CharacterModel> {
@@ -31,11 +31,12 @@ export class CharacterService {
   }
 
   updateCharacter(characterId: string, characterData: CharacterModel) {
-    return this.httpClient.put<CharacterModel>(`${this.API_URL}/characters/:characterId`, characterData);
+    return this.httpClient.put<CharacterModel>(`${this.API_URL}/characters/${characterId}`, characterData);
   }
 
   deleteCharacter(characterId: string) {
-    return this.httpClient.delete<CharacterModel>(`${this.API_URL}/characters/:characterId`);
+    return this.httpClient.delete(`${this.API_URL}/characters/${characterId}`);
+        //.pipe(catchError(this.handleError('Delete Character')));
   }
   
 }
