@@ -18,15 +18,15 @@ export class CharacterService {
     public router: Router
     ) { }
 
-  listAllCharacters() {
-    return this.httpClient.get<any>(`${this.API_URL}/characters/`);
+  listAllCharacters(): Observable<CharacterModel[]> {
+    return this.httpClient.get<CharacterModel[]>(`${this.API_URL}/characters/`);
   }
 
-  retrieveOneCharacter(characterId: string) {
+  retrieveOneCharacter(characterId: string): Observable<CharacterModel> {
     return this.httpClient.get<any>(`${this.API_URL}/characters/:characterId`);
   }
 
-  postNewCharacter(characterData: CharacterModel) {
+  postNewCharacter(characterData: CharacterModel): Observable<CharacterModel> {
     return this.httpClient.post<CharacterModel>(`${this.API_URL}/characters/`, characterData);
   }
 
