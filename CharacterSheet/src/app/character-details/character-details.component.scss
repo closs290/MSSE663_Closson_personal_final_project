@@ -10,12 +10,14 @@
         // padding: 5px;
 
         .detail-label {
-            font-style: italic;
+            font-weight: bold;
         }
 
         .detail-itself {
             color: red;
-            padding: 0.5em;
+            padding: 0.25em;
+            margin: 0.25em;
+            border-style: groove;
         }
     }
 

@@ -1,18 +1,29 @@
 <div class="character-list">
     <div class="page-content">
         <div *ngIf="CharacterList$ | async as characters">
-            <ul class="characterList">
-                <li class="idividual-character" *ngFor="let char of characters">
+            <div class="characterList">
+                <span class="individual-character" *ngFor="let char of characters">
                     <app-character-details [thisCharacter]="char"></app-character-details>
                     <app-stats [thisCharacter]="char"></app-stats>
                     <button (click)="deleteCharacter(char._id)">Delete</button>
-                </li>
-            </ul>    
+                </span>
+            </div>    
         </div>
         
-        <button (click)="newCharacter()"
+        <div class="roll-buttons">
+            <button type="button"
+                title="Open a form to create a new character"
+                (click)="newCharacter()"
                 class="new-character-button">
-            New Character
-        </button>
+                New Character
+            </button>
+
+            <button type="button"
+                    title="Open a new window and just roll some dice"
+                    (click)="newRollStatsWindow()">
+                Roll some stats!
+            </button>
+        </div>
+        
     </div>
 </div>

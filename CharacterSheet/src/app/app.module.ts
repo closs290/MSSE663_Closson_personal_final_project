@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StatsComponent } from './stats/stats.component';
-import { CreateCharacterComponent } from './create-character/create-character.component';
 import { CharacterPanelComponent } from './character-panel/character-panel.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
@@ -18,7 +17,6 @@ import { RollStatsComponent } from './roll-stats/roll-stats.component';
   declarations: [
     AppComponent,
     StatsComponent,
-    CreateCharacterComponent,
     CharacterPanelComponent,
     CharacterListComponent,
     CharacterDetailsComponent,

@@ -78,15 +78,4 @@ export const defaultCallback = (req: any, res: any) => (
       {_id: req.params.characterId},
       optsCallback(req, res)({msg: "Deleted successfully"})
     );
-    // console.log("Trying to delete: " + req.body._id);
-    // Characters.findOneAndRemove(
-    //   { _id: req.params.propertyId },
-    //   req.body,
-    //   function(err, data) {
-    //     if(!err) {
-    //       console.log("Deleted " + req.body.characterName);
-    //       res.status(200).json({success: true, msg: 'Character has been deleted!'});
-    //     }
-    //   }
-    // );
   };

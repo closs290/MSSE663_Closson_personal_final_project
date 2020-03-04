@@ -82,8 +82,11 @@
         </div>
 
         <!--Add a button that creates a pop-out window to roll stats, which you can then manually enter from that other window-->
-        
-        <div class='stat-group'>
+        <div class="dice-panel">
+          <app-roll-stats></app-roll-stats>
+        </div>
+
+        <!-- <div class='stat-group'>
           <div class='physical-stats'>
             <div class='form-group'>
               <label for="strength">Strength:</label>
@@ -152,7 +155,7 @@
                   required />
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div *ngIf="submitted && error" class="form-group" [ngClass]="{ 'has-error': submitted && error }">
           <div class="help-block">{{error}}</div>

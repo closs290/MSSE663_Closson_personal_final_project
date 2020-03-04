@@ -40,4 +40,12 @@ export class CharacterListComponent implements OnInit {
     this.selectedCharacter = character;
   }
 
+  newRollStatsWindow() {
+    window.open('http://localhost:4200/rollStats');
+    // this.router.navigate(['/rollStats']);
+    // consider using BrowserWindow = remote.BrowserWindow;
+    // win = new BrowserWindow({ width, height, center, resizable, frame, transparent });
+    // win.loadURL('http://localhost:4200/rollStats')
+  }
+
 }

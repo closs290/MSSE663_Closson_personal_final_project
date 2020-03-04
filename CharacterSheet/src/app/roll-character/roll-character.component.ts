@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { first } from 'rxjs/operators'; // consider using take(1) instead
 
 import { CharacterService } from '../character.service';
+import { StatsService } from '../stats.service';
 
 @Component({
   selector: 'app-roll-character',
@@ -16,24 +17,18 @@ export class RollCharacterComponent implements OnInit {
   returnUrl: string;
   error: string;
 
-  // ToDo: Import from model
-  // raceList = [
-  //   {race: 'Human'},
-  //   {race: 'Elf'},
-  //   {race: 'Dwarf'}
-  // ];
-  // classList = [
-  //   {class: 'Fighter'},
-  //   {class: 'Rogue'},
-  //   {class: 'Wizard'},
-  //   {class: 'Cleric'}
-  // ];
+  Strength: number;
+  Dexterity: number;
+  Constitution: number;
+  Intelligence: number;
+  Wisdom: number;
+  Charisma: number;
 
   constructor(
     public formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private charService: CharacterService
+    private charService: CharacterService,
+    private stats: StatsService
   ) { }
 
   ngOnInit() {
@@ -42,17 +37,15 @@ export class RollCharacterComponent implements OnInit {
       characterName: ['', Validators.required],
       characterLevel: [1, Validators.required],
       characterRace: ['Human', Validators.required],
-      characterClass: ['Fighter', Validators.required],
-      strength: [10, Validators.required],
-      dexterity: [10, Validators.required],
-      constitution: [10, Validators.required],
-      intelligence: [10, Validators.required],
-      wisdom: [10, Validators.required],
-      charisma: [10, Validators.required]
+      characterClass: ['Fighter', Validators.required]
     });
-    // ToDo: Refactor. Do I want to mass create characters, or view list after creation?
-    // this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/characters/view';
     this.returnUrl = '/view';
+    this.stats.currentStrength.subscribe(str => this.Strength = str);
+    this.stats.currentDexterity.subscribe(str => this.Dexterity = str);
+    this.stats.currentConstitution.subscribe(str => this.Constitution = str);
+    this.stats.currentIntelligence.subscribe(str => this.Intelligence = str);
+    this.stats.currentWisdom.subscribe(str => this.Wisdom = str);
+    this.stats.currentCharisma.subscribe(str => this.Charisma = str);
   }
 
   get field() { return this.newCharacterForm.controls; }
@@ -65,12 +58,12 @@ export class RollCharacterComponent implements OnInit {
       characterLevel: this.field.characterLevel.value,
       characterRace: this.field.characterRace.value,
       characterClass: this.field.characterClass.value,
-      strength: this.field.strength.value,
-      dexterity: this.field.dexterity.value,
-      constitution: this.field.constitution.value,
-      intelligence: this.field.intelligence.value,
-      wisdom: this.field.wisdom.value,
-      charisma: this.field.charisma.value
+      strength: this.Strength,
+      dexterity: this.Dexterity,
+      constitution: this.Constitution,
+      intelligence: this.Intelligence,
+      wisdom: this.Wisdom,
+      charisma: this.Charisma
     }).pipe(first())
     .subscribe( // Note the subscription on the service post here.
       data => {
