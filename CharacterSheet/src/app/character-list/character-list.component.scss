@@ -19,7 +19,6 @@
         align-self: center;
         padding: 20px;
         border-radius: 8px;
-        // width: 60%; // this makes it go to the left for some reason.
         border-style: solid;
         margin-left: 4em;
         margin-right: 4em;
@@ -34,10 +33,6 @@
 
     button {
         align-self: center;
-        // margin-top: 5px;
-        // margin-right: 5px;
-        // margin-left: 5px;
-        // margin-bottom: 5px;
         border-radius: 3px;
     
         &:hover {

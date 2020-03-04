@@ -12,7 +12,6 @@ import { CharacterService } from '../character.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  // characters: CharacterModel[];
   CharacterList$: Observable<CharacterModel[]>;
   selectedCharacter: CharacterModel;
 
@@ -31,21 +30,14 @@ export class CharacterListComponent implements OnInit {
 
   deleteCharacter(id: string) {
     this.charService.deleteCharacter(id).subscribe();
-    // Probably not the best way to do this, but it re-loads the view
-    // to accomodate the deletion.
     this.CharacterList$ = this.charService.listAllCharacters();
+    this.router.navigate(['/view']);
   }
 
   onSelect(character: CharacterModel): void {
     this.selectedCharacter = character;
   }
 
-  newRollStatsWindow() {
-    window.open('http://localhost:4200/rollStats');
-    // this.router.navigate(['/rollStats']);
-    // consider using BrowserWindow = remote.BrowserWindow;
-    // win = new BrowserWindow({ width, height, center, resizable, frame, transparent });
-    // win.loadURL('http://localhost:4200/rollStats')
-  }
+  newRollStatsWindow() { window.open('http://localhost:4200/rollStats'); }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators'; // consider using take(1) instead
+import { first } from 'rxjs/operators';
 
 import { CharacterService } from '../character.service';
 import { StatsService } from '../stats.service';
@@ -51,7 +51,6 @@ export class RollCharacterComponent implements OnInit {
   get field() { return this.newCharacterForm.controls; }
 
   sendCharacterToDB() {
-    // this.loading = true;
     this.charService.postNewCharacter( {
       playerName: this.field.playerName.value,
       characterName: this.field.characterName.value,
@@ -72,7 +71,6 @@ export class RollCharacterComponent implements OnInit {
       },
       error => {
         this.error = error;
-        // this.loading = false;
       }
         )
   }
