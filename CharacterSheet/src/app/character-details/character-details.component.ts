@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CharacterModel } from 'backend/models/character.model';
 
 @Component({
-  selector: 'app-stats',
-  templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.scss']
+  selector: 'app-character-details',
+  templateUrl: './character-details.component.html',
+  styleUrls: ['./character-details.component.scss']
 })
-export class StatsComponent implements OnInit {
+export class CharacterDetailsComponent implements OnInit {
   @Input() thisCharacter: CharacterModel;
 
   constructor() { }

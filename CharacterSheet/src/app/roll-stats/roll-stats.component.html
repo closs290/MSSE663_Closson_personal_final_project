@@ -1,0 +1,39 @@
+<div class="roll-stats">
+    <button type="button" 
+            class="dice"
+            title="Roll 4d6 and drop lowest, 6 times"
+            (click)="rollDice()"> 
+        Roll stats! 
+    </button>
+
+    <div class="stat-container">
+        <div class="stat">
+            <div class="itself" id="strength">{{Strength}}</div>
+            <div class="label">STR</div>
+        </div>
+        <div class="stat">
+            <div class="itself" id="dexterity">{{Dexterity}}</div>
+            <div class="label">DEX</div>
+        </div>
+        <div class="stat">
+            <div class="itself" id="constitution">{{Constitution}}</div>
+            <div class="label">CON</div>
+        </div>
+        <div class="stat">
+            <div class="itself" id="intelligence">{{Intelligence}}</div>
+            <div class="label">INT</div>
+        </div>
+        <div class="stat">
+            <div class="itself" id="wisdom">{{Wisdom}}</div>
+            <div class="label">WIS</div>
+        </div>
+        <div class="stat">
+            <div class="itself" id="charisma">{{Charisma}}</div>
+            <div class="label">CHA</div>
+        </div>
+    </div>
+    
+</div>
+
+
+
