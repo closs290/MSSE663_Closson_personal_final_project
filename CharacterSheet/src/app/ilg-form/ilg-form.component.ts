@@ -93,4 +93,8 @@ export class IlgFormComponent implements OnInit {
         });
     }
 
+    viewDB() {
+        this.router.navigate(['/list']);
+    }
+
 }

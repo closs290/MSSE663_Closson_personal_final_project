@@ -34,20 +34,20 @@ export class ILGService {
     return this.httpClient.get<ILGModel[]>(`${this.API_URL}/ilgs/`);
   }
 
-  retrieveOneCharacter(characterId: string): Observable<ILGModel> {
-    return this.httpClient.get<any>(`${this.API_URL}/ilgs/${characterId}`);
+  retrieveOneCharacter(ilgId: string): Observable<ILGModel> {
+    return this.httpClient.get<any>(`${this.API_URL}/ilgs/${ilgId}`);
   }
 
-  postNewCharacter(characterData: ILGModel): Observable<ILGModel> {
-    return this.httpClient.post<ILGModel>(`${this.API_URL}/ilgs/`, characterData);
+  postNewCharacter(ILGData: ILGModel): Observable<ILGModel> {
+    return this.httpClient.post<ILGModel>(`${this.API_URL}/ilgs/`, ILGData);
   }
 
-  updateCharacter(characterId: string, characterData: ILGModel) {
-    return this.httpClient.put<ILGModel>(`${this.API_URL}/ilgs/${characterId}`, characterData);
+  updateCharacter(ilgId: string, characterData: ILGModel) {
+    return this.httpClient.put<ILGModel>(`${this.API_URL}/ilgs/${ilgId}`, characterData);
   } 
 
-  deleteCharacter(characterId: string) {
-    return this.httpClient.delete(`${this.API_URL}/ilgs/${characterId}`);
+  deleteCharacter(ilgId: string) {
+    return this.httpClient.delete(`${this.API_URL}/ilgs/${ilgId}`);
   } 
   
 }

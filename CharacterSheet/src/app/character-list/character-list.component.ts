@@ -12,32 +12,30 @@ import { ILGService } from '../ilg.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  CharacterList$: Observable<ILGModel[]>;
+  ILGList$: Observable<ILGModel[]>;
   selectedCharacter: ILGModel;
 
   constructor(
-    private charService: ILGService,
+    private ilgService: ILGService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.CharacterList$ = this.charService.listAllCharacters();
+    this.ILGList$ = this.ilgService.listAllCharacters();
   }
 
-  newCharacter() {
-    this.router.navigate(['/rollCharacter']);
+  goHome() {
+    this.router.navigate(['/']);
   }
 
   deleteCharacter(id: string) {
-    this.charService.deleteCharacter(id).subscribe();
-    this.CharacterList$ = this.charService.listAllCharacters();
-    this.router.navigate(['/view']);
+    this.ilgService.deleteCharacter(id).subscribe();
+    this.ILGList$ = this.ilgService.listAllCharacters();
+    this.router.navigate(['/list']);
   }
 
-  onSelect(character: ILGModel): void {
-    this.selectedCharacter = character;
+  onSelect(ilg: ILGModel): void {
+    this.selectedCharacter = ilg;
   }
-
-  newRollStatsWindow() { window.open('http://localhost:4200/rollStats'); }
 
 }
