@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { CharacterModel } from '../../../backend/models/character.model';
-import { CharacterService } from '../character.service';
+import { ILGModel } from '../../../backend/models/ilg.model';
+import { ILGService } from '../ilg.service';
 
 @Component({
   selector: 'app-character-list',
@@ -12,11 +12,11 @@ import { CharacterService } from '../character.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  CharacterList$: Observable<CharacterModel[]>;
-  selectedCharacter: CharacterModel;
+  CharacterList$: Observable<ILGModel[]>;
+  selectedCharacter: ILGModel;
 
   constructor(
-    private charService: CharacterService,
+    private charService: ILGService,
     private router: Router
   ) { }
 
@@ -34,7 +34,7 @@ export class CharacterListComponent implements OnInit {
     this.router.navigate(['/view']);
   }
 
-  onSelect(character: CharacterModel): void {
+  onSelect(character: ILGModel): void {
     this.selectedCharacter = character;
   }
 

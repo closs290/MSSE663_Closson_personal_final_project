@@ -1,37 +1,51 @@
-import { BrowserModule } from '@angular/platform-browser';
+// Angular
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+// Materials
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+
+// ILG
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StatsComponent } from './stats/stats.component';
-import { CharacterPanelComponent } from './character-panel/character-panel.component';
+import { IlgFormComponent } from './ilg-form/ilg-form.component';
+import { KeysPipe } from './ilg-form/keys.pipe';
 import { CharacterListComponent } from './character-list/character-list.component';
-import { CharacterDetailsComponent } from './character-details/character-details.component';
-import { RollCharacterComponent } from './roll-character/roll-character.component';
-import { RollStatsComponent } from './roll-stats/roll-stats.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    StatsComponent,
-    CharacterPanelComponent,
-    CharacterListComponent,
-    CharacterDetailsComponent,
-    RollCharacterComponent,
-    RollStatsComponent
-  ],
-  imports: [
-    HttpClientModule,
-    RouterModule,
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        IlgFormComponent,
+        KeysPipe,
+        CharacterListComponent
+    ],
+    imports: [
+        HttpClientModule,
+        RouterModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSelectModule,
+        MatTabsModule
+    ],
+    providers: [ ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

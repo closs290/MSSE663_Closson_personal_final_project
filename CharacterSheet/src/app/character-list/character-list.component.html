@@ -3,8 +3,7 @@
         <div *ngIf="CharacterList$ | async as characters">
             <div class="characterList">
                 <span class="individual-character" *ngFor="let char of characters">
-                    <app-character-details [thisCharacter]="char"></app-character-details>
-                    <app-stats [thisCharacter]="char"></app-stats>
+                    <p>{{char.language}}</p>
                     <button (click)="deleteCharacter(char._id)">Delete</button>
                 </span>
             </div>    
@@ -16,12 +15,6 @@
                 (click)="newCharacter()"
                 class="new-character-button">
                 New Character
-            </button>
-
-            <button type="button"
-                    title="Open a new window and just roll some dice"
-                    (click)="newRollStatsWindow()">
-                Roll some stats!
             </button>
         </div>
         

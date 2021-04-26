@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'D&D 5E Character Sheet';
+  title = 'Interlinear Gloss Creator';
 }

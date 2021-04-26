@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CharacterListComponent } from './character-list/character-list.component';
-import { RollCharacterComponent } from './roll-character/roll-character.component';
-import { RollStatsComponent } from './roll-stats/roll-stats.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { IlgFormComponent } from './ilg-form/ilg-form.component';
 
 const routes: Routes = [
-  { path: '',    redirectTo: 'view', pathMatch: 'full' },
-  { path: 'view',  component: CharacterListComponent },
-  { path: 'rollCharacter',  component: RollCharacterComponent },
-  { path: 'rollStats',  component: RollStatsComponent }
+  {
+    path: '',
+    component: IlgFormComponent
+  },
+  {
+    path: 'form',
+    component: IlgFormComponent
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
