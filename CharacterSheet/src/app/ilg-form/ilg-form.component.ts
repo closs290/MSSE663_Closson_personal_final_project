@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 // ILG App
@@ -16,6 +17,7 @@ import { FONTS } from './fonts';
 })
 export class IlgFormComponent implements OnInit {
 
+    ILGList$: Observable<ILGModel[]>;
     interlinearGlossForm: FormGroup;
     currDate = new Date(Date.now());
     fonts = FONTS;
@@ -38,6 +40,7 @@ export class IlgFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.addPair();
+        this.ILGList$ = this.ilgService.listAllCharacters();
     }
 
     submit() {

@@ -112,7 +112,7 @@
     <mat-tab label="Library">
         <mat-card class="gloss-library-card">
             <mat-card-title>Glosses Created this Session:</mat-card-title>
-            <table *ngFor="let ilg of ilgService.InterlinearGlossBank.getValue()"
+            <table *ngFor="let ilg of (ILGList$ | async)"
                     [style.font-family]="this.interlinearGlossForm.value.fontForm">
                 <tr>
                     <td colspan="100">
